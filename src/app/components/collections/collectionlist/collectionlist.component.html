@@ -1,0 +1,45 @@
+<h1>Collection List </h1>
+<hr>
+<div fxLayout="row" fxLayoutAlign="end stretch">
+  <button fxLayoutAlign="end stretch" color="primary" mat-button routerLink="/addcollections">New Collection</button>
+
+</div>
+<div class="table-container">
+  <mat-table [dataSource]="datasource" matSort>
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div fxLayout="row" fxLayoutAlign="center stretch">
+          <button class="action-button" mat-icon-button (click)="deleteCollection(element.id)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editCollection(element.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns  sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

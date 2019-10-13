@@ -1,0 +1,62 @@
+<h1 mat-dialog-title fxLayout="row" fxLayoutAlign="center" class="title"> {{movie.title}} </h1>
+
+<div mat-dialog-content fxLayout="row" fxLayoutGap="10px">
+  <div>
+    <img class="image-large" src="{{apiUrl}}{{movie.poster_path}}" alt="{{movie.title}}">
+  </div>
+  <div>
+    <div fxLayout="column" fxLayoutGap="1px">
+
+      <div class="section-text">
+        <label class="text-title">Overview</label>
+        <label class="text-subtitle">{{movie.overview}}</label>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="section-text">
+          <label class="text-title">Budget</label>
+          <label class="text-subtitle">{{movie.budget | currency}}</label>
+        </div>
+        <div class="section-text">
+          <label class="text-title">Revenue</label>
+          <label class="text-subtitle">{{movie.revenue  | currency}}</label>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+      <div class="section-text">
+        <label class="text-title">Release Date</label>
+        <label class="text-subtitle">{{movie.release_date | date }}</label>
+      </div>
+
+      <mat-divider></mat-divider>
+      <div class="section-text">
+        <label class="text-title">Languages</label>
+        <div *ngFor="let item of movie.spoken_languages">
+          <label class="text-subtitle-languages">{{item.name}}</label>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="section-text">
+          <label class="text-title">Vote Average</label>
+          <label class="text-subtitle">{{movie.vote_average}}</label>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="section-text">
+          <label class="text-title">vote Count</label>
+          <label class="text-subtitle">{{movie.vote_count}}</label>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="section-text">
+        <label fxLayoutAlign="center stretch" class="text-title">Rate it!</label>
+        <app-rating fxLayoutAlign="center stretch" [rating]="rating" [movieId]="movieId" [starCount]="starCount"
+          [color]="starColor" (ratingUpdated)="onRatingChanged($event)">
+        </app-rating>
+      </div>
+    </div>
+
+  </div>
+</div>

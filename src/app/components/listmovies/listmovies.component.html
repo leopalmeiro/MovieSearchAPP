@@ -1,0 +1,52 @@
+<div fxLayout="row wrap" fxLayoutAlign="end stretch">
+  <mat-form-field class="input">
+    <input matInput [formControl]="filter" (keyup)="doFilter()" placeholder="Filter" [errorStateMatcher]="matcher">
+    <mat-hint>For Search Minimun 3 caracteres</mat-hint>
+    <mat-error *ngIf="filter.hasError('minlength')">Please Type More Than 3 Characters</mat-error>
+    <mat-error *ngIf="filter.hasError('pattern')">Please type Only Alphanumerics</mat-error>
+  </mat-form-field>
+</div>
+<!-- Table section -->
+<div *ngIf="hasNoResult">
+  <label fxLayout="row" fxLayoutAlign="center center" class="no-result">No Result</label>
+</div>
+
+<div *ngIf="showTable">
+
+    <div class="table-container">
+      <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="poster">
+          <mat-header-cell *matHeaderCellDef> Poster </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <div *ngIf="!element.poster_path; else showImage">
+              <label>Image not found </label>
+            </div>
+            <ng-template #showImage>
+              <img class="image-small" src="{{apiUrl}}{{element.poster_path}}" alt="{{element.title}}">
+            </ng-template>
+          </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="voteAverage">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Vote Average </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.vote_average}} </mat-cell>
+        </ng-container>
+  
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+  
+        <mat-row (click)="openDialog(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <!--       <tr mat-row (click)="getRecord(row.id)" *matRowDef="let row; columns: displayedColumns;"></tr>
+   -->
+      </mat-table>
+  
+    </div>
+    <mat-paginator [length]="length" [pageSize]="pageSize" (page)="pageChanged($event)">
+      </mat-paginator>
+  </div>
+  

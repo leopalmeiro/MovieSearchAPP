@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+
+.logo{
+    width: 30vw;
+    border-radius: 30px;
+}
+.menu{
+    margin: 20px;
+}
+.contact-item{
+    padding-top: 5px;
+}
+img{
+    width: 100px;
+}
+
+/* stripped config */
+.mat-row:nth-child(even) {
+    background-color:  #e4e4e449;
+  }
+  
+  .mat-row:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .mat-row:nth-child(odd):hover,
+  .mat-row:nth-child(even):hover {
+    background-color: #a5a6a755;
+  }
+
+  .table-container {
+    height: 330px;
+    overflow: auto;
+  
+  }
+  
+  .button-form-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.input{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+}
+.main-container{
+  /* margin: 10px; */
+  height: 45vh;
+ 
+}
+footer{
+  margin-top: 10px;
+}
+

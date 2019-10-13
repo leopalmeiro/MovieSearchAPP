@@ -1,0 +1,30 @@
+.image-large{
+    width: 400px;
+}
+.text-subtitle{
+    font-size: 20px;
+}
+.text-title{
+    font-size: 30px;
+
+}
+.section-text{
+/*     border-bottom-style: solid;
+    border-bottom-color: #dddddd; */
+    display: flex;  
+    flex-direction: column;
+    flex: 1;
+    margin: 5px;    
+
+}
+.text-subtitle-languages{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    border: 10px;
+    font-size: 20px;
+
+}
+.title{
+    font-size: 60px;
+}
