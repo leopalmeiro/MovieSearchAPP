@@ -113,7 +113,6 @@ export class ApiService {
   //collectionsection
   getCollections(): MoviesCollection[] {
     let item: string[] = JSON.parse(localStorage.getItem(keylocalStorage));
-    /* alert(item[keylocalStorage].length); */
     if (item === null) {
       localStorage.setItem(keylocalStorage, JSON.stringify(listCollections));
     } else {

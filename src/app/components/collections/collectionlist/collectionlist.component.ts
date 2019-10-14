@@ -4,6 +4,8 @@ import { MoviesCollection } from "src/app/models/moviescollection";
 import { ApiService } from "src/app/services/api.service";
 import { MatSnackBar, MatTableDataSource, MatSort } from "@angular/material";
 
+
+
 @Component({
   selector: "app-collectionlist",
   templateUrl: "./collectionlist.component.html",
@@ -17,7 +19,6 @@ export class CollectionlistComponent implements OnInit {
   private snackBarDuration: number = 2000;
 
   constructor(private apiService: ApiService, private snackBar: MatSnackBar) {
-    //localStorage.setItem(this.key, JSON.stringify(this.listCollections));
   }
 
   ngOnInit() {
@@ -34,9 +35,7 @@ export class CollectionlistComponent implements OnInit {
         duration: this.snackBarDuration
       }
     );
+
   }
 
-  editCollection(id) {
-    alert("Not Work");
-  }
 }
