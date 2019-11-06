@@ -1,4 +1,4 @@
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; 
 
  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -10,7 +10,7 @@
     border-radius: 30px;
 }
 .menu{
-    margin: 20px;
+    /* margin: 20px; */
 }
 .contact-item{
     padding-top: 5px;
@@ -57,3 +57,6 @@ footer{
   margin-top: 10px;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

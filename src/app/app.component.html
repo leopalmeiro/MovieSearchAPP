@@ -1,6 +1,6 @@
 <div fxLayout="column" >
-    <nav class="menu" fxLayout="row" fxLayoutAlign="end stretch">
-
+    <nav >
+      <mat-toolbar class="menu" fxLayout="row" fxLayoutAlign="end">
         <button mat-button routerLink="/home">Home</button>
         <button mat-button [matMenuTriggerFor]="collectionsMenu">Collections</button>
         <mat-menu #collectionsMenu="matMenu">
@@ -8,6 +8,7 @@
           <button mat-menu-item routerLink="/addcollections">New Collections</button>
       
         </mat-menu>
+      </mat-toolbar>
       </nav>
       <header fxLayout="column" fxLayoutAlign="center center">
         <img class="logo" src="../assets/images/logo.gif" alt="Logo">
